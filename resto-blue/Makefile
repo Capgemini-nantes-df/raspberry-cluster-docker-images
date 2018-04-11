@@ -1,0 +1,11 @@
+DOCKER_IMAGE_VERSION=blue
+DOCKER_IMAGE_NAME=REGISTRY_URL/resto
+DOCKER_IMAGE_TAGNAME=$(DOCKER_IMAGE_NAME):$(DOCKER_IMAGE_VERSION)
+
+default: build
+
+build:
+	docker build -t $(DOCKER_IMAGE_TAGNAME) . --no-cache
+
+push:
+	docker push $(DOCKER_IMAGE_TAGNAME)
